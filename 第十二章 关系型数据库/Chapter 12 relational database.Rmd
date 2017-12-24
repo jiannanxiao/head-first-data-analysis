@@ -1,0 +1,17 @@
+---
+title: "Chapter 12 relational database"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+myData = read.csv("/Users/jason/Desktop/9780596153946-master-fa0d7fd942498b1bd8dc8d1298cb9eb07c52fba4/hfda_ch12_articleHitsComments.csv")
+
+head(myData)
+
+library(lattice)
+xyplot(webHits~commentCount | authorName, data = myData)
+```
