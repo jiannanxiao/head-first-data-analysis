@@ -1,0 +1,58 @@
+---
+title: "Chapter 9 histgram the shape of the numbers"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##read csv data into R
+```{r}
+myData = read.csv("/Users/jason/Desktop/9780596153946-master-fa0d7fd942498b1bd8dc8d1298cb9eb07c52fba4/hfda_ch09_employees.csv")
+```
+
+##show the first 5 rows 
+```{r}
+head(myData)
+```
+
+##show the histgram
+```{r}
+hist(myData$received, breaks = 50)
+```
+
+##show the standard deviation
+```{r}
+sd(myData$received)
+```
+
+##show the summary of the data
+```{r}
+summary(myData$received)
+```
+
+##show the histgram using conditional data
+```{r}
+hist(myData$received[myData$year == 2007], breaks = 50)
+```
+
+```{r}
+hist(myData$received[myData$year == 2008], breaks = 50)
+```
+
+```{r}
+hist(myData$received[myData$gender == "F"], breaks = 50)
+```
+
+```{r}
+hist(myData$received[myData$gender == "M"], breaks = 50)
+```
+
+```{r}
+hist(myData$received[myData$negotiated == FALSE], breaks = 50)
+```
+
+```{r}
+hist(myData$received[myData$negotiated == TRUE], breaks = 50)
+```
