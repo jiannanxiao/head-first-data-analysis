@@ -1,0 +1,32 @@
+---
+title: "Chapter 10 regression"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data_emp = read.csv("/Users/jason/Desktop/9780596153946-master-fa0d7fd942498b1bd8dc8d1298cb9eb07c52fba4/hfda_ch10_employees.csv")
+```
+
+```{r}
+head(data_emp)
+```
+
+##scatter plot
+```{r}
+plot(data_emp$requested[data_emp$negotiated==TRUE], data_emp$received[data_emp$negotiated==TRUE])
+```
+
+##correlation r
+```{r}
+cor(data_emp$requested[data_emp$negotiated==TRUE], data_emp$received[data_emp$negotiated==TRUE])
+```
+
+##linear regression model
+```{r}
+myLm = lm(received[negotiated==TRUE]~requested[negotiated==TRUE], data=data_emp)
+myLm$coefficients
+```
